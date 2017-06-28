@@ -1,1 +1,5 @@
 <h2>Character Statistics</h2>
+<label for="bonus">Select a class:</label>
+      <input id="class" type="text" #charClass placeholder="Wizard">
+      <button class="btn-success" id="class-selection" (click)="getBonus(charClass.value)">Select!</button>
+      <div class="showClass"></div>

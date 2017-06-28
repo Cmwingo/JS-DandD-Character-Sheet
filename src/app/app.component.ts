@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'D&D 5th Ed Character Sheet';
+
 }
