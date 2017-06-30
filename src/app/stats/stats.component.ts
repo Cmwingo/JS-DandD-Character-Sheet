@@ -3,20 +3,23 @@ import { Router } from '@angular/router';
 import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import { DndapiService } from '../dndapi.service';
 declare var $:any;
 
 
 @Component({
   selector: 'app-stats',
   templateUrl: './stats.component.html',
-  styleUrls: ['./stats.component.css']
+  styleUrls: ['./stats.component.css'],
+  providers: [ DndapiService ]
 })
 export class StatsComponent implements OnInit {
 
-  constructor(private router: Router, private http: Http) { }
-  private apiUrl = 'http://dnd5eapi.co/api';
+  constructor(private router: Router, private http: Http, private dndapiService: DndapiService) { }
   classResponse: Response;
   ngOnInit() {
+    this.classResponse = this.dndapiService.getClasses();
+    console.log(this.classResponse);
   }
 
   getBonus(charClass: string) {
